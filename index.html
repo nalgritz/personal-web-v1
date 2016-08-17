@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="PersonalWebApp" ng-cloak>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Rex S.</title>
+
+  <!-- Angular Material Libraries-->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.scss">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <!-- Custom JS -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/personal_web_controller.js"></script>
+
+</head>
+<body ng-controller="HomeCtrl">
+  <div id="home" class="home-container">
+    Hello World!
+
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+          <md-button class="md-raised">Button</md-button>
+          <md-button class="md-raised md-primary">Primary</md-button>
+          <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
+          <md-button class="md-raised md-warn">Warn</md-button>
+        </section>
+  </div>
+
+  <div id="aboutme" class="home-container">
+    Me
+
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button class="md-raised">Button</md-button>
+      <md-button class="md-raised md-primary">Primary</md-button>
+      <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
+      <md-button class="md-raised md-warn">Warn</md-button>
+    </section>
+  </div>
+
+  <div id="works" class="home-container">
+    <div class="md-padding"
+    layout-xs="column"
+    layout="row"
+    flex-xs flex-gt-xs="50"
+    class="cards wrapper"
+    ng-repeat="work in works">
+    <div>Works</div>
+      <md-card md-theme-watch raised>
+        <md-card-title>
+          <md-card-title-text>
+            <div class="md-headline">{{work.title}}</div>
+            <div class="md-subhead">{{work.subtitle}}</div>
+          </md-card-title-text>
+          <md-card-title-media>
+            <img class="md-media-lg card-media" src="{{work.img_url}}" width="100%"></div>
+          </md-card-title-media>
+        </md-card-title>
+      </md-card>
+    </div>
+
+
+    <md-grid-list
+          md-cols-xs="1"
+          md-cols-sm="2"
+          md-cols-md="4"
+          md-cols-gt-md="6"
+          md-row-height-gt-md="1:1"
+          md-row-height="2:2"
+          md-gutter="12px"
+          md-gutter-gt-sm="8px">
+      <md-grid-tile class="gray"
+          md-rowspan="3"
+          md-colspan="2"
+          md-colspan-sm="1"
+          md-colspan-xs="1">
+        <div class="md-headline">{{work.title}}</div>
+        <div class="subtitle">{{work.subtitle}}</div>
+        <img src="{{work.img_url}}" width="100%">
+      </md-grid-tile>
+    </md-grid-list>
+  </div>
+  <div id="contact" class="home-container">
+    Let's Chat
+
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+          <md-button class="md-raised">Button</md-button>
+          <md-button class="md-raised md-primary">Primary</md-button>
+          <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
+          <md-button class="md-raised md-warn">Warn</md-button>
+        </section>
+  </div>
+
+</body>
+</html>
+
