@@ -5,98 +5,97 @@
   <meta name="viewport" content="width=device-width">
   <title>Rex S.</title>
 
-  <!-- Angular Material Libraries-->
+  <!-- Angular Libraries-->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-aria/angular-aria.js"></script>
-  <script src="bower_components/angular-material/angular-material.js"></script>
-  <script src="bower_components/angular-messages/angular-messages.js"></script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.scss">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <!-- Custom JS -->
   <script src="js/app.js"></script>
+  <script src="js/controllers/nav_controller.js"></script>
   <script src="js/controllers/personal_web_controller.js"></script>
-
+  <script src="js/controllers/works_controller.js"></script>
 </head>
-<body ng-controller="HomeCtrl">
-  <div id="home" class="home-container">
-    Hello World!
 
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-          <md-button class="md-raised">Button</md-button>
-          <md-button class="md-raised md-primary">Primary</md-button>
-          <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
-          <md-button class="md-raised md-warn">Warn</md-button>
-        </section>
+
+
+<!-- HTML BODY -->
+<body>
+  <nav-bar ng-controller="NavCtrl" class="padding" selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+    <nav-item ng-click="toHome()" name="home">Home</nav-item>
+    <nav-item ng-click="toAboutMe()" name="aboutme">Me</nav-item>
+    <nav-item ng-click="toWorks()" name="works">Works</nav-item>
+    <nav-item ng-click="toContactMe()" name="contactme">Contact</nav-item>
+    <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
+    <nav-item nav-sref="app.page4" name="page4">Page Four</nav-item>
+    <nav-item nav-href="#page5" name="page5">Page Five</nav-item>
+    -->
+  </nav-bar>
+<!--   <div class="ext-content">
+    External content for `<span>{{currentNavItem}}</span>`
   </div>
+ -->
 
-  <div id="aboutme" class="home-container">
+  <!-- Home page -->
+  <!-- Add ng-show="{{toHome}}" -->
+  <section id="home" class="home-container" ng-controller="HomeCtrl">
+    <h1>REX SHUM</h1>
+    <p>
+      Junior Web Developer with network sales background who understands business and business operations. A result-driven individual. Passionate and curious about the world of technology and business design.
+    </p>
+  </section>
+
+  <!-- About Me -->
+  <!-- Add ng-show="{{toAboutMe}}" -->
+  <section id="aboutme" class="home-container">
     Me
 
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <md-button class="md-raised">Button</md-button>
-      <md-button class="md-raised md-primary">Primary</md-button>
-      <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
-      <md-button class="md-raised md-warn">Warn</md-button>
-    </section>
-  </div>
+    <content layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <button class="raised">Button</button>
+      <button class="raised primary">Primary</button>
+      <button ng-disabled="true" class="raised primary">Disabled</button>
+      <button class="raised warn">Warn</button>
+    </content>
+  </section>
 
-  <div id="works" class="home-container">
-    <div class="md-padding"
+  <!-- Past Work -->
+  <!-- Add ng-show="{{toWorks}}" -->
+  <section ng-controller="WorksCtrl" id="works" class="home-container">
+    <div>Works</div>
+    <div class="padding"
     layout-xs="column"
     layout="row"
     flex-xs flex-gt-xs="50"
     class="cards wrapper"
     ng-repeat="work in works">
-    <div>Works</div>
-      <md-card md-theme-watch raised>
-        <md-card-title>
-          <md-card-title-text>
-            <div class="md-headline">{{work.title}}</div>
-            <div class="md-subhead">{{work.subtitle}}</div>
-          </md-card-title-text>
-          <md-card-title-media>
-            <img class="md-media-lg card-media" src="{{work.img_url}}" width="100%"></div>
-          </md-card-title-media>
-        </md-card-title>
-      </md-card>
+      <card id="workcards" theme-watch raised>
+        <card-title>
+          <card-title-text>
+            <div class="headline">{{work.title}}</div>
+            <div class="title">{{work.subtitle}}</div>
+          </card-title-text>
+          <card-title-media>
+              <img class="media-lg card-media" src="{{work.img_url}}" width="100%"></div>
+          </card-title-media>
+        </card-title>
+      </card>
     </div>
+  </section>
 
-
-    <md-grid-list
-          md-cols-xs="1"
-          md-cols-sm="2"
-          md-cols-md="4"
-          md-cols-gt-md="6"
-          md-row-height-gt-md="1:1"
-          md-row-height="2:2"
-          md-gutter="12px"
-          md-gutter-gt-sm="8px">
-      <md-grid-tile class="gray"
-          md-rowspan="3"
-          md-colspan="2"
-          md-colspan-sm="1"
-          md-colspan-xs="1">
-        <div class="md-headline">{{work.title}}</div>
-        <div class="subtitle">{{work.subtitle}}</div>
-        <img src="{{work.img_url}}" width="100%">
-      </md-grid-tile>
-    </md-grid-list>
-  </div>
-  <div id="contact" class="home-container">
+  <!-- Contact Me -->
+  <!-- Add ng-show="{{toContactMe}}" -->
+  <section id="contact" class="home-container">
     Let's Chat
 
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-          <md-button class="md-raised">Button</md-button>
-          <md-button class="md-raised md-primary">Primary</md-button>
-          <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
-          <md-button class="md-raised md-warn">Warn</md-button>
-        </section>
-  </div>
+    <content layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <button class="raised">Button</button>
+      <button class="raised primary">Primary</button>
+      <button ng-disabled="true" class="raised primary">Disabled</button>
+      <button class="raised warn">Warn</button>
+    </content>
+  </section>
 
 </body>
 </html>
-
