@@ -15,8 +15,9 @@
   <!-- Custom JS -->
   <script src="js/app.js"></script>
   <script src="js/controllers/nav_controller.js"></script>
-  <script src="js/controllers/personal_web_controller.js"></script>
+  <script src="js/controllers/home_controller.js"></script>
   <script src="js/controllers/works_controller.js"></script>
+  <script src="js/controllers/contact_controller.js"></script>
 </head>
 
 
@@ -28,10 +29,6 @@
     <nav-item ng-click="toAboutMe()" name="aboutme">Me</nav-item>
     <nav-item ng-click="toWorks()" name="works">Works</nav-item>
     <nav-item ng-click="toContactMe()" name="contactme">Contact</nav-item>
-    <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
-    <nav-item nav-sref="app.page4" name="page4">Page Four</nav-item>
-    <nav-item nav-href="#page5" name="page5">Page Five</nav-item>
-    -->
   </nav-bar>
 <!--   <div class="ext-content">
     External content for `<span>{{currentNavItem}}</span>`
@@ -50,20 +47,17 @@
   <!-- About Me -->
   <!-- Add ng-show="{{toAboutMe}}" -->
   <section id="aboutme" class="home-container">
-    Me
-
-    <content layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <button class="raised">Button</button>
-      <button class="raised primary">Primary</button>
-      <button ng-disabled="true" class="raised primary">Disabled</button>
-      <button class="raised warn">Warn</button>
-    </content>
+    <h1>Me</h1>
+    <p>
+      I am a Junior Web Developer born in Hong Kong with 5 years working experience from administration to account management in large corporates. Learnt from working experience and travelling over 50 countries, I believe that 'Communication is the door. Empathy is the key' to unleash the maximum potential of a team. <br>
+      Hope that meeting new people & continuous learning can inspire me to solve various problems.
+    </p>
   </section>
 
   <!-- Past Work -->
   <!-- Add ng-show="{{toWorks}}" -->
-  <section ng-controller="WorksCtrl" id="works" class="home-container">
-    <div>Works</div>
+  <section id="works" class="home-container" ng-controller="WorksCtrl">
+    <h1>Works</h1>
     <div class="padding"
     layout-xs="column"
     layout="row"
@@ -73,11 +67,12 @@
       <card id="workcards" theme-watch raised>
         <card-title>
           <card-title-text>
-            <div class="headline">{{work.title}}</div>
-            <div class="title">{{work.subtitle}}</div>
+            <h3 class="worktitle">{{work.title}}</h3>
+            <h4 class="worksub">{{work.subtitle}}</h4>
           </card-title-text>
           <card-title-media>
-              <img class="media-lg card-media" src="{{work.img_url}}" width="100%"></div>
+            <!-- how to set image responsive, now always 100% -->
+            <img class="image" src="{{work.img_url}}" width="100%"></div>
           </card-title-media>
         </card-title>
       </card>
@@ -86,15 +81,17 @@
 
   <!-- Contact Me -->
   <!-- Add ng-show="{{toContactMe}}" -->
-  <section id="contact" class="home-container">
-    Let's Chat
+  <section id="contact" class="home-container" ng-controller="ContactCtrl">
+    <h1>Let's Chat</h1>
 
-    <content layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <button class="raised">Button</button>
-      <button class="raised primary">Primary</button>
-      <button ng-disabled="true" class="raised primary">Disabled</button>
-      <button class="raised warn">Warn</button>
-    </content>
+    <!-- Need to set no dots -->
+    <!-- better way to set a href & no change text color -->
+    <ul layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <li><i class="mobile">Mobile</i> +852 97362136</li>
+      <li><i class="email">email</i> <a href="mailto:rexshum@yahoo.com.hk">rexshum@yahoo.com.hk</a></li>
+      <li><i class="github">github</i> <a href="http://www.github.com/nalgritz">github.com/nalgritz</a></li>
+      <li><i class="linkedin">linkedin</i> <a href="">linkedin.com/rex-shum---xxxxxx</a></li>
+    </ul>
   </section>
 
 </body>

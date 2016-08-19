@@ -1,8 +1,17 @@
 body {
   background-color: #000000;
   color: #a1a1a1;
+  padding: 10px;
 }
 
-#home > h1 {
+nav-item {
+  margin-right: 5%;
+}
+
+nav-item:last-child {
+  margin-right: 0;
+}
+
+h1 {
   color: #FFFFFF;
 }
