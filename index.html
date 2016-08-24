@@ -54,8 +54,8 @@
   <section id="aboutme" class="home-container">
     <h1>Me</h1>
     <p>
-      I am a Junior Web Developer born in Hong Kong with 5 years working experience from administration to account management in large corporates. Learnt from working experience and travelling over 50 countries, I believe that 'Communication is the door. Empathy is the key' to unleash the maximum potential of a team. <br>
-      Hope that meeting new people & continuous learning can inspire me to solve various problems.
+      I am a Junior Web Developer born in Hong Kong with 5 years working experience from administration to account management in large corporates. Learnt from working experience and travelling over 50 countries, I believe that 'Communication is the door. Empathy is the key' to unleash the maximum team potential. <br>
+      Meeting new people & continuous learning can inspire me to solve various problems.
     </p>
   </section>
 
@@ -63,11 +63,7 @@
   <!-- Add ng-show="page == 'works'" -->
   <section id="works" class="home-container" ng-controller="WorksCtrl">
     <h1>Works</h1>
-    <div class="padding"
-    layout-xs="column"
-    layout="row"
-    flex-xs flex-gt-xs="50"
-    class="cards wrapper"
+    <div class="cards"
     ng-repeat="work in works">
       <div id="card" theme-watch raised>
         <div class="cardContainer">
