@@ -9,26 +9,31 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
 
+  <!-- Font Families -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Varela">
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css">
+
   <!-- Custom CSS -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <!-- Custom JS -->
   <script src="js/app.js"></script>
-  <script src="js/controllers/nav_controller.js"></script>
   <script src="js/controllers/home_controller.js"></script>
   <script src="js/controllers/works_controller.js"></script>
   <script src="js/controllers/contact_controller.js"></script>
+  <!-- <script src="js/controllers/nav_controller.js"></script> -->
+
+
 </head>
 
 
 
 <!-- HTML BODY -->
-<body>
-  <nav-bar ng-controller="NavCtrl" class="padding" selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-    <nav-item ng-click="toHome()" name="home">Home</nav-item>
-    <nav-item ng-click="toAboutMe()" name="aboutme">Me</nav-item>
-    <nav-item ng-click="toWorks()" name="works">Works</nav-item>
-    <nav-item ng-click="toContactMe()" name="contactme">Contact</nav-item>
+<body ng-controller="HomeCtrl">
+  <nav-bar id="navbar" class="padding" selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+    <nav-item ng-click="page = 'home'" name="home">HOME</nav-item>
+    <nav-item ng-click="page = 'aboutMe'" name="aboutme">ME</nav-item>
+    <nav-item ng-click="page = 'works'" name="works">WORKS</nav-item>
   </nav-bar>
 <!--   <div class="ext-content">
     External content for `<span>{{currentNavItem}}</span>`
@@ -36,8 +41,8 @@
  -->
 
   <!-- Home page -->
-  <!-- Add ng-show="{{toHome}}" -->
-  <section id="home" class="home-container" ng-controller="HomeCtrl">
+  <!-- Add ng-show="page == 'home'" -->
+  <section id="home" class="home-container">
     <h1>REX SHUM</h1>
     <p>
       Junior Web Developer with network sales background who understands business and business operations. A result-driven individual. Passionate and curious about the world of technology and business design.
@@ -45,7 +50,7 @@
   </section>
 
   <!-- About Me -->
-  <!-- Add ng-show="{{toAboutMe}}" -->
+  <!-- Add ng-show="page == 'aboutMe'" -->
   <section id="aboutme" class="home-container">
     <h1>Me</h1>
     <p>
@@ -55,7 +60,7 @@
   </section>
 
   <!-- Past Work -->
-  <!-- Add ng-show="{{toWorks}}" -->
+  <!-- Add ng-show="page == 'works'" -->
   <section id="works" class="home-container" ng-controller="WorksCtrl">
     <h1>Works</h1>
     <div class="padding"
@@ -64,35 +69,36 @@
     flex-xs flex-gt-xs="50"
     class="cards wrapper"
     ng-repeat="work in works">
-      <card id="workcards" theme-watch raised>
-        <card-title>
-          <card-title-text>
-            <h3 class="worktitle">{{work.title}}</h3>
-            <h4 class="worksub">{{work.subtitle}}</h4>
-          </card-title-text>
-          <card-title-media>
+      <div id="card" theme-watch raised>
+        <div class="cardContainer">
+          <div class="textContainer">
+            <h3 class="workTitle">{{work.title}}</h3>
+            <h4 class="workSub">{{work.subtitle}}</h4>
+          </div>
+          <div class="imgContainer">
             <!-- how to set image responsive, now always 100% -->
-            <img class="image" src="{{work.img_url}}" width="100%"></div>
-          </card-title-media>
-        </card-title>
-      </card>
+            <img class="image" src="{{work.img_url}}" width="100%">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Me -->
   <!-- Add ng-show="{{toContactMe}}" -->
-  <section id="contact" class="home-container" ng-controller="ContactCtrl">
-    <h1>Let's Chat</h1>
+  <footer id="footer" class="home-container" ng-controller="ContactCtrl">
 
     <!-- Need to set no dots -->
     <!-- better way to set a href & no change text color -->
-    <ul layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <li><i class="mobile">Mobile</i> +852 97362136</li>
-      <li><i class="email">email</i> <a href="mailto:rexshum@yahoo.com.hk">rexshum@yahoo.com.hk</a></li>
-      <li><i class="github">github</i> <a href="http://www.github.com/nalgritz">github.com/nalgritz</a></li>
-      <li><i class="linkedin">linkedin</i> <a href="">linkedin.com/rex-shum---xxxxxx</a></li>
+    <ul id="contact" class="icons">
+      <li><a href="tel: +85297362136" class="icon fa-phone"></a></li>
+      <li><a href="http://www.github.com/nalgritz" class="icon fa-github"></a></li>
+      <li><a href="mailto:rexshum@yahoo.com.hk" class="icon fa-envelope-o"></a></li>
     </ul>
-  </section>
+    <ul class="copyright">
+      <li class="copyright">&copy; Rex S. Production</li>
+    </ul>
+  </footer>
 
 </body>
 </html>
