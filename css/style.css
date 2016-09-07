@@ -5,44 +5,17 @@
 
 @import url(../bower_components/components-font-awesome/css/font-awesome.css);
 
-
 body {
   background-color: #000000;
   color: #a1a1a1;
   font-family: 'Varela', sans-serif;
-  height: 1200px;
+  height: 1600px;
   border: 0;
   padding: 6em 4em 4em 4em;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
 }
-
-@media screen and (max-width: 1680px) {
-
-  body {
-    padding: 10em 3.5em 3.5em 3.5em;
-  }
-
-}
-
-@media screen and (max-width: 736px) {
-
-  body {
-    padding: 12em 2em 2em 2em;
-  }
-
-}
-
-@media screen and (max-width: 360px) {
-
-  body {
-    padding: 12em 1.25em 1.25em 1.25em;
-    height: 2200px;
-  }
-
-}
-
 
 /* Nav bar*/
 #navbar {
@@ -69,11 +42,11 @@ h1 {
   overflow: hidden;
   position: absolute;
   left: 70px;
-  -webkit-transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
-  -moz-transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
-  -ms-transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
-  -o-transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
-  transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
+  -webkit-transition:all cubic-bezier(.62,.03,.49,.99) 2s;
+  -moz-transition:all cubic-bezier(.62,.03,.49,.99) 2s;
+  -ms-transition:all cubic-bezier(.62,.03,.49,.99) 2s;
+  -o-transition:all cubic-bezier(.62,.03,.49,.99) 2s;
+  transition:all cubic-bezier(.62,.03,.49,.99) 2s;
   padding-bottom: 10%;
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -87,9 +60,9 @@ h1 {
   -moz-animation: tabs 0.5s;
   -o-animation: tabs 0.5s;
   animation: tabs 0.5s;
-  left: -10000px;
+  left: -20000px;
 }
-
+/**/
   /* Change Page Animation */
   @-webkit-keyframes tabs {
     0% {
@@ -182,30 +155,6 @@ h1 {
   transform: translateX(-100px);
 }
 
-.line.ng-enter,
-.line.ng-leave {
-  transition: all 500ms ease-in-out;
-  position: relative;
-  display: block;
-}
-
-/* When moving out = leave-active
-And ng-enter not active yet
-Position : invisible
- */
-.line.ng-enter,
-.line.ng-leave.ng-leave-active {
-  left: 500px;
-}
-
-/* When moving in
-And ng-leave not active yet
-Position : visible */
-.line.ng-enter.ng-enter-active,
-.line.ng-leave {
-  left: 0;
-}
-
 /* Text */
 .text {
   max-width: 700px;
@@ -213,11 +162,24 @@ Position : visible */
 
 /* Card */
 .card {
-  margin: 10px;
+  max-width: 300px;
+  margin: 15px;
+  margin-left: 0;
+  box-shadow: 0 1px 3px rgba(255,255,255,0.12), 0 1px 2px rgba(255,255,255,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: #0F0F0F;
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(255,255,255,0.25), 0 10px 10px rgba(255,255,255,0.22);
+}
+
+.card-content {
+  padding: 20px;
 }
 
 .workSub {
-  width: 300px;
+  max-width: 300px;
   height: 80px;
 }
 
@@ -256,7 +218,7 @@ Position : visible */
 
 /* List */
 ul {
-  list-style: disc;
+  list-style: none;
   margin: 0 0 2em 0;
   padding-left: 1em;
 }
@@ -267,7 +229,6 @@ ul {
 
   ul.icons {
     cursor: default;
-    list-style: none;
     padding-left: 0;
   }
 
@@ -288,8 +249,15 @@ ul {
         color: inherit;
       }
 
-.list {
-  list-style: none;
+
+
+.title {
+  padding-left: 0px;
+  font-weight: bold;
+}
+
+.image {
+  max-width: 100%;
 }
 
 /* Footer */
@@ -341,102 +309,88 @@ ul {
 
   @media screen and (max-width: 1680px) {
 
+    body {
+      padding: 10em 3.5em 3.5em 3.5em;
+      height: 1300px;
+    }
+    .card {
+      padding: auto;
+    }
     #footer {
       padding-bottom: 1.2em;
       padding-left: 3.5em;
       left: 0em;
     }
+    .text {
+      max-width: 700px;
+      margin-right: 70px;
+    }
   }
 
   @media screen and (max-width: 736px) {
 
+    body {
+      padding: 12em 2em 2em 2em;
+      height: 2300px;
+    }
+    .home-container {
+      padding-left: 0;
+      left: auto;
+    }
     #footer {
       padding-bottom: 0.7em;
-      left: 0em;
+      padding-left: 2em;
     }
     #footer > .icons {
       margin: 0.5em 0 0.5em 0;
+    }
+    .text {
+      max-width: 700px;
+      margin-right: 70px;
     }
   }
 
   @media screen and (max-height: 640px) {
 
+    body {
+      padding: 12em 1.25em 1.25em 1.25em;
+      height: 2200px;
+    }
+    .home-container {
+      padding-left: 0;
+    }
+    .card {
+      padding: auto;
+    }
     #footer {
-      left: auto;
       margin: 1em 0 0 0;
-      position: relative;
+      padding-left: 0;
+      padding-bottom: 1em;
     }
     #footer > .icons {
       margin: 0.3em 0 0.5em 0;
+    }
+    .text {
+      max-width: 700px;
+      margin-right: 70px;
     }
 
   }
 
   @media screen and (max-width: 360px) {
 
-    #footer {
-      padding-bottom: 0.2em;
-      left: 1.25em;
+    body {
+      padding: 4em 1.25em 1.25em 1.25em;
+      height: 2200px;
     }
-
+    .home-container {
+      padding-left: 0;
+    }
+    #footer {
+      padding-bottom: 1em;
+      padding-left: 1.25em;
+    }
     #footer > .icons {
       margin: 0.2em 0 0.5em 0;
     }
   }
-
-.image {
-  width: 300px;
-  max-width: 300px;
-}
-
-
-  /*
-
-.view-second img {
-  transition: all 0.2s ease-in;
-}
-.view-second .mask {
-  background-color: rgba(115,146,184, 0.7);
-  width: 300px;
-    padding: 60px;
-  height: 300px;
-  opacity: 0;
-  transform: translate(265px, 145px) rotate(45deg);
-  transition: all 0.2s ease-in-out;
-}
-.view-second h2 {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    background: transparent;
-    margin: 20px 40px 0px 40px;
-    transform: translate(200px, -200px);
-  transition: all 0.2s ease-in-out;
-}
-.view-second p {
-  transform: translate(-200px, 200px);
-  transition: all 0.2s ease-in-out;
-}
-.view-second a.info {
-    transform: translate(0px, 100px);
-  transition: all 0.2s 0.1s ease-in-out;
-}
-
-
-
-.view-second:hover .mask {
-  opacity:1;
-  transform: translate(-80px, -125px) rotate(45deg);
-}
-.view-second:hover h2 {
-  transform: translate(0px,0px);
-  transition-delay: 0.3s;
-}
-.view-second:hover p {
-    transform: translate(0px,0px);
-  transition-delay: 0.4s;
-}
-.view-second:hover a.info {
-  transform: translate(0px,0px);
-  transition-delay: 0.5s;
-}
-
-   */

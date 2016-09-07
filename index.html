@@ -29,7 +29,6 @@
 </head>
 
 
-
 <!-- HTML BODY -->
 <body ng-controller="HomeCtrl">
   <div>
@@ -39,10 +38,10 @@
       <nav-item ng-click="page = 'works'" name="works">WORKS</nav-item>
     </nav-bar>
   </div>
-    <div class="line"></div>
 
   <!-- Home page -->
   <section id="home" ng-show="page == 'home'" class="home-container ng-show">
+    <div class="line"></div>
     <h1>REX SHUM</h1>
     <p class="text">
       Web Developer with network sales background who understands business and business operations. Passionate and curious about the world of technology and business design.
@@ -51,43 +50,47 @@
 
   <!-- About Me -->
   <section id="aboutme" ng-show="page == 'aboutMe'" class="home-container ng-show">
+    <div class="line"></div>
     <h1>ABOUT ME</h1>
     <p class="text">
-      I am a Junior Web Developer born in Hong Kong with 5 years working experience from administration to account management in large corporates. Learnt from working experience and travelling over 50 countries, I believe that 'Communication is the door. Empathy is the key' to unleash the maximum team potential. </br>
+      I am a Junior Web Developer born in Hong Kong with 5 years working experience from administration to account management in large corporates. Learnt from working experience and travelling over 50 countries, I believe that <b><i>'Communication is the door. Empathy is the key'</i></b> to unleash the maximum team potential. </br></br>
       Meeting new people & continuous learning can inspire me to solve various problems.
     </p>
 
-    <div id="techlist" class="list">
-      <ul>
-        <li class="title">Technologies</li>
-        <li>HTML 5</li>
-        <li>CSS 3</li>
-        <li>Boostrap 3</li>
-        <li>Javascript</li>
-        <li>jQuery</li>
-        <li>Angular 1</li>
-        <li>Ionic framework</li>
-        <li>NodeJS</li>
-        <li>Ruby on Rails</li>
-        <li>MongoDB</li>
-        <li>Postgres SQL</li>
-      </ul>
-    </div>
-    <div id="businesslist" class="list">
-      <ul>
-        <li class="title">Business</li>
-        <li>Account Management</li>
-        <li>Business Idea Scoping</li>
-      </ul>
+    <div layout="row" layout-xs="column" layout-wrap>
+      <div id="techlist" class="list">
+        <ul flex>
+          <li class="title">Technologies</li>
+          <li>HTML 5</li>
+          <li>CSS 3</li>
+          <li>Boostrap 3</li>
+          <li>Javascript</li>
+          <li>jQuery</li>
+          <li>Angular 1</li>
+          <li>Ionic framework</li>
+          <li>NodeJS</li>
+          <li>Ruby on Rails</li>
+          <li>MongoDB</li>
+          <li>Postgres SQL</li>
+        </ul>
+      </div>
+      <div id="businesslist" class="list">
+        <ul flex>
+          <li class="title">Business</li>
+          <li>Account Management</li>
+          <li>Business Idea Scoping</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- Past Work -->
   <section id="works" ng-controller="WorksCtrl" ng-show="page == 'works'" class="home-container ng-show">
+    <div class="line"></div>
     <h1>WORKS</h1>
     <div class="cards" layout="row" layout-xs="column" layout-wrap>
-      <div flex="auto" ng-repeat="work in works">
-        <div class="card">
+      <div flex="nogrow" ng-repeat="work in works">
+        <div  class="card">
           <div class="card-content">
             <div>
               <h3 class="workTitle">{{work.title}}</h3>
