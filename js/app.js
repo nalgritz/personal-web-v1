@@ -3,4 +3,4 @@ app = /**
 *
 * Description
 */
-angular.module('PersonalWebApp', [])
+angular.module('PersonalWebApp', ['ngAnimate', 'ngMaterial']);

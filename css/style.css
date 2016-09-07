@@ -1,22 +1,21 @@
+@font-face {
+  font-family: 'league-spartan-bold';
+  src: url('../fonts/league-spartan-bold.otf') format('truetype');
+}
+
 @import url(../bower_components/components-font-awesome/css/font-awesome.css);
 
-/*
-font-family: 'Archivo Black', sans-serif;
-font-family: 'Varela', sans-serif;
-*/
 
 body {
   background-color: #000000;
   color: #a1a1a1;
-  padding: 10px;
   font-family: 'Varela', sans-serif;
-  margin: 0;
-  padding: 0;
+  height: 1200px;
   border: 0;
+  padding: 6em 4em 4em 4em;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  padding: 6em 4em 4em 4em;
 }
 
 @media screen and (max-width: 1680px) {
@@ -39,11 +38,18 @@ body {
 
   body {
     padding: 12em 1.25em 1.25em 1.25em;
+    height: 2200px;
   }
 
 }
 
 
+/* Nav bar*/
+#navbar {
+  font-size: 0.6em;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
 
 nav-item {
   margin-right: 5%;
@@ -54,28 +60,173 @@ nav-item:last-child {
 }
 
 h1 {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: 'league-spartan-bold', sans-serif;
   color: #FFFFFF;
 }
 
-/* Nav bar*/
-#navbar {
-  font-size: 0.6em;
-  font-weight: bold;
-  letter-spacing: 0.2em;
+/* Pages */
+.home-container {
+  overflow: hidden;
+  position: absolute;
+  left: 70px;
+  -webkit-transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
+  -moz-transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
+  -ms-transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
+  -o-transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
+  transition:all cubic-bezier(.62,.03,.49,.99) 1.2s;
+  padding-bottom: 10%;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
+.home-container.ng-hide {
+  -webkit-animation: tabs 0.5s;
+  -moz-animation: tabs 0.5s;
+  -o-animation: tabs 0.5s;
+  animation: tabs 0.5s;
+  left: -10000px;
+}
+
+  /* Change Page Animation */
+  @-webkit-keyframes tabs {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes tabs {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-o-keyframes tabs {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes tabs {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Fade In Animation*/
+  @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Firefox < 16 */
+  @-moz-keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Safari, Chrome and Opera > 12.1 */
+  @-webkit-keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Internet Explorer */
+  @-ms-keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Opera < 12.1 */
+  @-o-keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+
+/* Lines */
+.line {
+  background-color: #353535;
+  height: 2px;
+  width: 100%;
+  -webkit-transform: translateX(-100px);
+  -moz-transform: translateX(-100px);
+  -ms-transform: translateX(-100px);
+  -o-transform: translateX(-100px);
+  transform: translateX(-100px);
+}
+
+.line.ng-enter,
+.line.ng-leave {
+  transition: all 500ms ease-in-out;
+  position: relative;
+  display: block;
+}
+
+/* When moving out = leave-active
+And ng-enter not active yet
+Position : invisible
+ */
+.line.ng-enter,
+.line.ng-leave.ng-leave-active {
+  left: 500px;
+}
+
+/* When moving in
+And ng-leave not active yet
+Position : visible */
+.line.ng-enter.ng-enter-active,
+.line.ng-leave {
+  left: 0;
+}
+
+/* Text */
+.text {
+  max-width: 700px;
 }
 
 /* Card */
-.cards {
-  /*display: inline-block;*/
+.card {
+  margin: 10px;
 }
 
+.workSub {
+  width: 300px;
+  height: 80px;
+}
 
 /* Icon */
 .icon {
   -moz-transition: border-bottom-color 0.2s ease, color 0.2s ease;
   -webkit-transition: border-bottom-color 0.2s ease, color 0.2s ease;
   -ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+  -o-transition: border-bottom-color 0.2s ease, color 0.2s ease;
   transition: border-bottom-color 0.2s ease, color 0.2s ease;
   position: relative;
   border-bottom: none;
@@ -137,16 +288,20 @@ ul {
         color: inherit;
       }
 
+.list {
+  list-style: none;
+}
+
 /* Footer */
 #footer {
   width: 100%;
   height: 10%;
   background-color: #000000;
   color: rgba(255, 255, 255, 0.8);
-  left: 4em;
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
+  bottom: 0em;
 }
 
   #footer > .icons {
@@ -188,8 +343,8 @@ ul {
 
     #footer {
       padding-bottom: 1.2em;
-      bottom: 0em;
-      left: 3.5em;
+      padding-left: 3.5em;
+      left: 0em;
     }
   }
 
@@ -197,8 +352,7 @@ ul {
 
     #footer {
       padding-bottom: 0.7em;
-      bottom: 0em;
-      left: 2em;
+      left: 0em;
     }
     #footer > .icons {
       margin: 0.5em 0 0.5em 0;
@@ -208,7 +362,6 @@ ul {
   @media screen and (max-height: 640px) {
 
     #footer {
-      bottom: auto;
       left: auto;
       margin: 1em 0 0 0;
       position: relative;
@@ -223,7 +376,6 @@ ul {
 
     #footer {
       padding-bottom: 0.2em;
-      bottom: 0em;
       left: 1.25em;
     }
 
@@ -231,3 +383,60 @@ ul {
       margin: 0.2em 0 0.5em 0;
     }
   }
+
+.image {
+  width: 300px;
+  max-width: 300px;
+}
+
+
+  /*
+
+.view-second img {
+  transition: all 0.2s ease-in;
+}
+.view-second .mask {
+  background-color: rgba(115,146,184, 0.7);
+  width: 300px;
+    padding: 60px;
+  height: 300px;
+  opacity: 0;
+  transform: translate(265px, 145px) rotate(45deg);
+  transition: all 0.2s ease-in-out;
+}
+.view-second h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    background: transparent;
+    margin: 20px 40px 0px 40px;
+    transform: translate(200px, -200px);
+  transition: all 0.2s ease-in-out;
+}
+.view-second p {
+  transform: translate(-200px, 200px);
+  transition: all 0.2s ease-in-out;
+}
+.view-second a.info {
+    transform: translate(0px, 100px);
+  transition: all 0.2s 0.1s ease-in-out;
+}
+
+
+
+.view-second:hover .mask {
+  opacity:1;
+  transform: translate(-80px, -125px) rotate(45deg);
+}
+.view-second:hover h2 {
+  transform: translate(0px,0px);
+  transition-delay: 0.3s;
+}
+.view-second:hover p {
+    transform: translate(0px,0px);
+  transition-delay: 0.4s;
+}
+.view-second:hover a.info {
+  transform: translate(0px,0px);
+  transition-delay: 0.5s;
+}
+
+   */

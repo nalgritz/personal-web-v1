@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="PersonalWebApp" ng-cloak>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <title>Rex S.</title>
 
   <!-- Angular Libraries-->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
 
   <!-- Font Families -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Varela">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
   <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css">
 
   <!-- Custom CSS -->
@@ -21,59 +26,77 @@
   <script src="js/controllers/home_controller.js"></script>
   <script src="js/controllers/works_controller.js"></script>
   <script src="js/controllers/contact_controller.js"></script>
-  <!-- <script src="js/controllers/nav_controller.js"></script> -->
-
-
 </head>
 
 
 
 <!-- HTML BODY -->
 <body ng-controller="HomeCtrl">
-  <nav-bar id="navbar" class="padding" selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-    <nav-item ng-click="page = 'home'" name="home">HOME</nav-item>
-    <nav-item ng-click="page = 'aboutMe'" name="aboutme">ME</nav-item>
-    <nav-item ng-click="page = 'works'" name="works">WORKS</nav-item>
-  </nav-bar>
-<!--   <div class="ext-content">
-    External content for `<span>{{currentNavItem}}</span>`
+  <div>
+    <nav-bar id="navbar" class="padding" selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <nav-item ng-click="page = 'home'" name="home">HOME</nav-item>
+      <nav-item ng-click="page = 'aboutMe'" name="aboutme">ME</nav-item>
+      <nav-item ng-click="page = 'works'" name="works">WORKS</nav-item>
+    </nav-bar>
   </div>
- -->
+    <div class="line"></div>
 
   <!-- Home page -->
-  <!-- Add ng-show="page == 'home'" -->
-  <section id="home" class="home-container">
+  <section id="home" ng-show="page == 'home'" class="home-container ng-show">
     <h1>REX SHUM</h1>
-    <p>
-      Junior Web Developer with network sales background who understands business and business operations. A result-driven individual. Passionate and curious about the world of technology and business design.
+    <p class="text">
+      Web Developer with network sales background who understands business and business operations. Passionate and curious about the world of technology and business design.
     </p>
   </section>
 
   <!-- About Me -->
-  <!-- Add ng-show="page == 'aboutMe'" -->
-  <section id="aboutme" class="home-container">
-    <h1>Me</h1>
-    <p>
-      I am a Junior Web Developer born in Hong Kong with 5 years working experience from administration to account management in large corporates. Learnt from working experience and travelling over 50 countries, I believe that 'Communication is the door. Empathy is the key' to unleash the maximum team potential. <br>
+  <section id="aboutme" ng-show="page == 'aboutMe'" class="home-container ng-show">
+    <h1>ABOUT ME</h1>
+    <p class="text">
+      I am a Junior Web Developer born in Hong Kong with 5 years working experience from administration to account management in large corporates. Learnt from working experience and travelling over 50 countries, I believe that 'Communication is the door. Empathy is the key' to unleash the maximum team potential. </br>
       Meeting new people & continuous learning can inspire me to solve various problems.
     </p>
+
+    <div id="techlist" class="list">
+      <ul>
+        <li class="title">Technologies</li>
+        <li>HTML 5</li>
+        <li>CSS 3</li>
+        <li>Boostrap 3</li>
+        <li>Javascript</li>
+        <li>jQuery</li>
+        <li>Angular 1</li>
+        <li>Ionic framework</li>
+        <li>NodeJS</li>
+        <li>Ruby on Rails</li>
+        <li>MongoDB</li>
+        <li>Postgres SQL</li>
+      </ul>
+    </div>
+    <div id="businesslist" class="list">
+      <ul>
+        <li class="title">Business</li>
+        <li>Account Management</li>
+        <li>Business Idea Scoping</li>
+      </ul>
+    </div>
   </section>
 
   <!-- Past Work -->
-  <!-- Add ng-show="page == 'works'" -->
-  <section id="works" class="home-container" ng-controller="WorksCtrl">
-    <h1>Works</h1>
-    <div class="cards"
-    ng-repeat="work in works">
-      <div id="card" theme-watch raised>
-        <div class="cardContainer">
-          <div class="textContainer">
-            <h3 class="workTitle">{{work.title}}</h3>
-            <h4 class="workSub">{{work.subtitle}}</h4>
-          </div>
-          <div class="imgContainer">
-            <!-- how to set image responsive, now always 100% -->
-            <img class="image" src="{{work.img_url}}" width="100%">
+  <section id="works" ng-controller="WorksCtrl" ng-show="page == 'works'" class="home-container ng-show">
+    <h1>WORKS</h1>
+    <div class="cards" layout="row" layout-xs="column" layout-wrap>
+      <div flex="auto" ng-repeat="work in works">
+        <div class="card">
+          <div class="card-content">
+            <div>
+              <h3 class="workTitle">{{work.title}}</h3>
+              <h4 class="workSub">{{work.subtitle}}</h4>
+            </div>
+            <div>
+              <!-- how to set image responsive, now always 100% -->
+              <img class="image" src="{{work.img_url}}">
+            </div>
           </div>
         </div>
       </div>
@@ -81,11 +104,7 @@
   </section>
 
   <!-- Contact Me -->
-  <!-- Add ng-show="{{toContactMe}}" -->
-  <footer id="footer" class="home-container" ng-controller="ContactCtrl">
-
-    <!-- Need to set no dots -->
-    <!-- better way to set a href & no change text color -->
+  <footer id="footer" ng-controller="ContactCtrl">
     <ul id="contact" class="icons">
       <li><a href="tel: +85297362136" class="icon fa-phone"></a></li>
       <li><a href="http://www.github.com/nalgritz" class="icon fa-github"></a></li>
