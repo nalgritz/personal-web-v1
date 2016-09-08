@@ -25,7 +25,7 @@ body {
 #navbar {
   font-size: 0.6em;
   font-weight: bold;
-  letter-spacing: 1em;
+  letter-spacing: 0.5em;
   -moz-transition: opacity 0.5s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out;
   -ms-transition: opacity 0.5s ease-in-out;
@@ -257,25 +257,25 @@ ul {
     padding-left: 0.5em;
   }
 
-  ul#contact {
+  ul.icons {
     cursor: default;
     padding-left: 0;
   }
 
-    ul#contact li {
+    ul.icons li {
       display: inline-block;
       padding: 0 1em 0 0;
     }
 
-      ul#contact li:last-child {
+      ul.icons li:last-child {
         padding-right: 0;
       }
 
-      ul#contact li .icon:before {
+      ul.icons li .icon:before {
         font-size: 1.5em;
       }
 
-      ul#contact li a {
+      ul.icons li a {
         color: inherit;
       }
 
@@ -290,55 +290,40 @@ ul {
 
 /* Footer */
 #footer {
-  width: 95%;
+  width: 100%;
   height: 10%;
   background-color: #0F0F0F;
   /*background-image: url('../img/background.jpg');*/
   color: rgba(255, 255, 255, 0.8);
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
   position: fixed;
   bottom: 0em;
 }
 
-  #footer > #contact {
+  #footer > .icons {
+    margin: 0.5em 0 0.5em 0;
     -moz-transition: opacity 0.5s ease-in-out;
     -webkit-transition: opacity 0.5s ease-in-out;
     -ms-transition: opacity 0.5s ease-in-out;
     transition: opacity 0.5s ease-in-out;
     opacity: 0.5;
-    float: right;
   }
 
-  #footer > #contact > li {
+  #footer > .icons > li {
     display: inline-block;
     padding: 0 1em 0 0;
   }
 
-  #footer > #contact:hover {
+  #footer > .icons:hover {
     opacity: 1;
   }
 
-  #copyright {
-    font-size: 0.7em;
+  #footer #copyright {
     color: rgba(255, 255, 255, 0.4);
+    list-style: none;
     padding: 0;
   }
-
-.footer-item {
-  margin: 1% 5% 2% 0;
-  display: inline-block;
-  opacity: 0.5;
-}
-
-  #footer > #contact > li#copyright {
-    margin-top: 2%;
-    display: block;
-  }
-
-#comment {
-  font-size: 0.8em;
-}
 
   @media screen and (max-width: 1680px) {
 
@@ -374,7 +359,7 @@ ul {
       padding-bottom: 0.7em;
       padding-left: 2em;
     }
-    #footer > #contact {
+    #footer > .icons {
       margin: 0.5em 0 0.5em 0;
     }
     .text {
@@ -400,7 +385,7 @@ ul {
       padding-left: 0;
       padding-bottom: 1em;
     }
-    #footer > #contact {
+    #footer > .icons {
       margin: 0.3em 0 0.5em 0;
     }
     .text {
@@ -423,7 +408,7 @@ ul {
       padding-bottom: 1em;
       padding-left: 1.25em;
     }
-    #footer > #contact {
+    #footer > .icons {
       margin: 0.2em 0 0.5em 0;
     }
   }
