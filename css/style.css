@@ -13,7 +13,7 @@ body {
   background-repeat: no-repeat;
   color: #a1a1a1;
   font-family: 'Lato', sans-serif;
-  height: 1600px;
+  height: 100%;
   border: 0;
   padding: 6em 4em 4em 4em;
   font-size: 100%;
@@ -329,7 +329,7 @@ ul {
 
     body {
       padding: 10em 3.5em 3.5em 3.5em;
-      height: 1300px;
+      height: 170%;
     }
     .card {
       padding: auto;
@@ -349,7 +349,7 @@ ul {
 
     body {
       padding: 12em 2em 2em 2em;
-      height: 2300px;
+      height: 350%;
     }
     .home-container {
       padding-left: 0;
@@ -372,7 +372,7 @@ ul {
 
     body {
       padding: 12em 1.25em 1.25em 1.25em;
-      height: 2200px;
+      height: 370%;
     }
     .home-container {
       padding-left: 0;
@@ -399,7 +399,7 @@ ul {
 
     body {
       padding: 4em 1.25em 1.25em 1.25em;
-      height: 2200px;
+      height: 370%;
     }
     .home-container {
       padding-left: 0;
